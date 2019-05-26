@@ -1,3 +1,35 @@
 <resources>
+    <!-- APP -->
     <string name="app_name">Quiz</string>
+
+    <!-- Main -->
+    <string name="mainTextUsuario">Usuario</string>
+    <string name="mainTextPass">Contraseña</string>ç
+    <string name="mainButtonLogin">LOGIN</string>
+    <string name="mainTextRegistrar">REGISTRAR</string>
+
+    <!-- Levels  -->
+    <string name="nivel1">Nivel 1</string>
+    <string name="nivel2">Nivel 2</string>
+    <string name="nivel3">Nivel 3</string>
+    <string name="nivel4">Nivel 4</string>
+
+    <!-- Ready  -->
+    <string name="readyButton">READY</string>
+    <string name="iniReady">Estamos en Ready</string>
+
+    <!-- Test  -->
+    <string name="levelsButton1">Nivel 1</string>
+    <string name="levelsButton2">Nivel 2</string>
+    <string name="levelsButton3">Nivel 3</string>
+    <string name="levelsButton4">Nivel 4</string>
+    <string name="levelsButton5">Nivel 5</string>
+    <string name="levelsButton6">Nivel 6</string>
+    <string name="levelsButton7">Nivel 7</string>
+    <string name="levelsButton8">Nivel 8</string>
+    <string name="levelsButton9">Nivel 9</string>
+    <string name="levelsButton10">Nivel 10</string>
+
+    <!--  -->
+    <string name="a">a</string>
 </resources>
