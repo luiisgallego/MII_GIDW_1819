@@ -21,7 +21,7 @@ public class LevelsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_levels);
+        setContentView(R.layout.navigation_levels);
 
         // Declaramos los diferentes botones
         final Button boton1 = findViewById(R.id.levelsButton1);

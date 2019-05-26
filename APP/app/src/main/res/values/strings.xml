@@ -31,5 +31,6 @@
     <string name="levelsButton10">Nivel 10</string>
 
     <!--  -->
-    <string name="a">a</string>
+    <string name="Scorecard">Scorecard</string>
+    <string name="Share">Share</string>
 </resources>
