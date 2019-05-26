@@ -32,28 +32,9 @@ public class LevelsActivity extends AppCompatActivity implements NavigationView.
         DrawerLayout drawer_navigation = findViewById(R.id.navigation_levels);
         //ActionBarDrawerToggle toggleDrawer = new ActionBarDrawerToggle(this, drawer_navigation, toolbar_appbar, R.string.openToggle, R.string.closeToggle);
         //toggleDrawer.syncState();
-        NavigationView navigationView = findViewById(R.id.navigation_levels_nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        SharedPreferences infoPrincipal = getSharedPreferences("Contenido_principal", Context.MODE_PRIVATE);
-        //SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
 
         /* -------- Actualizar la información del navigation drawer según el login -------- */
-            // Recuperamos la info almacenada
-        String nombre_navigationDrawer = infoPrincipal.getString("nombre", "Nombre");
-        String email_navigationDrawer = infoPrincipal.getString("email", "email@gmail.com");
-        String genero_navigationDrawer = infoPrincipal.getString("genero", "Hombre");
-            // Tomamos la referencia del header del navigation
-        View header_navigation = navigationView.getHeaderView(0);
-            // Tomamos la referencia de los diferentes campos del header
-        ImageView imagen_header_navigation = header_navigation.findViewById(R.id.image_header_navigation_levels);
-        TextView nombre_header_navigation = header_navigation.findViewById(R.id.name_header_navigation_levels);
-        TextView email_header_navigation = header_navigation.findViewById(R.id.email_header_navigation_levels);
-            // Asignamos la info almacenada a cada campo
-        nombre_header_navigation.setText(nombre_navigationDrawer);
-        email_header_navigation.setText(email_navigationDrawer);
-        if(genero_navigationDrawer.equals("Mujer")) imagen_header_navigation.setImageResource(R.drawable.mujer_navigation_levels);
-        else imagen_header_navigation.setImageResource(R.drawable.hombre_navigation_levels);
-
+        actualizarHeaderNavigationDrawer();
 
         /* -------- Declaramos los diferentes botones -------- */
         final Button boton1 = findViewById(R.id.levelsButton1);
@@ -88,6 +69,39 @@ public class LevelsActivity extends AppCompatActivity implements NavigationView.
 
             }
         });
+    }
+
+    private void actualizarHeaderNavigationDrawer() {
+
+        // Referenciamos el navigation drawer
+        NavigationView navigationView = findViewById(R.id.navigation_levels_nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        // Recogemos la info compartida en el login - registro
+        SharedPreferences infoPrincipal = getSharedPreferences("Contenido_principal", Context.MODE_PRIVATE);
+        //SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
+
+        /* -------- Actualizar la información del navigation drawer según el login -------- */
+
+        // Recuperamos la info almacenada
+        String nombre_navigationDrawer = infoPrincipal.getString("nombre", "Nombre");
+        String email_navigationDrawer = infoPrincipal.getString("email", "email@gmail.com");
+        String genero_navigationDrawer = infoPrincipal.getString("genero", "Hombre");
+
+        // Tomamos la referencia del header del navigation
+        View header_navigation = navigationView.getHeaderView(0);
+
+        // Tomamos la referencia de los diferentes campos del header
+        ImageView imagen_header_navigation = header_navigation.findViewById(R.id.image_header_navigation_levels);
+        TextView nombre_header_navigation = header_navigation.findViewById(R.id.name_header_navigation_levels);
+        TextView email_header_navigation = header_navigation.findViewById(R.id.email_header_navigation_levels);
+
+        // Asignamos la info almacenada a cada campo
+        nombre_header_navigation.setText(nombre_navigationDrawer);
+        email_header_navigation.setText(email_navigationDrawer);
+        if(genero_navigationDrawer.equals("Mujer")) imagen_header_navigation.setImageResource(R.drawable.mujer_navigation_levels);
+        else imagen_header_navigation.setImageResource(R.drawable.hombre_navigation_levels);
+
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

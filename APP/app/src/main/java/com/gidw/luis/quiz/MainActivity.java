@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Button;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.Context;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +30,15 @@ public class MainActivity extends AppCompatActivity {
 
                 if( compruebaPassword(usuario.getText(), password.getText()) ) {
 
+                    // SHARED PREFERENCES
+                    SharedPreferences infoPrincipal = getSharedPreferences("Contenido_principal", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editorInfoPrincipal = infoPrincipal.edit();
+                    editorInfoPrincipal.putString("nombre", usuario.getText().toString());
+                    editorInfoPrincipal.putString("email", "emailRandom@gmail.es");
+                    editorInfoPrincipal.putString("genero", "Hombre");
+                    editorInfoPrincipal.commit();
+
+
                     // Creamos e iniciamos la nueva actividad
                     Intent mainIntent = new Intent(MainActivity.this, LevelsActivity.class);
                     startActivity(mainIntent);
@@ -44,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean compruebaPassword(Editable usuario, Editable password) {
         // Añadir valores
-        return (usuario.toString().equals("") && password.toString().equals(""));
+        return (!usuario.toString().equals("") && !password.toString().equals(""));
     }
 
     // Para cuando la actividad vuelve a ser mostrada
