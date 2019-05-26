@@ -13,6 +13,13 @@
     <string name="nivel2">Nivel 2</string>
     <string name="nivel3">Nivel 3</string>
     <string name="nivel4">Nivel 4</string>
+    <string name="openToggle">Abierto drawer navegacion</string>
+    <string name="closeToggle">Cerrado drawer navegacion</string>
+
+    <!-- Menu Navigation Levels  -->
+    <string name="ajustes_menu">Ajustes</string>
+    <string name="score_menu">Puntuación</string>
+    <string name="about_us_menu">Sobre nosotros</string>
 
     <!-- Ready  -->
     <string name="readyButton">READY</string>
@@ -30,7 +37,5 @@
     <string name="levelsButton9">Nivel 9</string>
     <string name="levelsButton10">Nivel 10</string>
 
-    <!--  -->
-    <string name="Scorecard">Scorecard</string>
-    <string name="Share">Share</string>
+
 </resources>

@@ -1,19 +1,22 @@
 package com.gidw.luis.quiz;
 
+import android.content.SharedPreferences;
+import android.content.Context;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.content.Intent;
-import android.widget.GridView;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public class LevelsActivity extends AppCompatActivity {
+public class LevelsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     // Para indicar el botón pulsado en la siguiente pagina
     public final static String LevelPulsado = "com.gidw.luis.quiz.MESSAGE";
@@ -23,7 +26,36 @@ public class LevelsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_levels);
 
-        // Declaramos los diferentes botones
+        /* -------- Inicialización de los componentes de la vista -------- */
+        Toolbar toolbar_appbar = findViewById(R.id.toolbar_appbar_navigation_levels);
+        //setSupportActionBar(toolbar_appbar);
+        DrawerLayout drawer_navigation = findViewById(R.id.navigation_levels);
+        //ActionBarDrawerToggle toggleDrawer = new ActionBarDrawerToggle(this, drawer_navigation, toolbar_appbar, R.string.openToggle, R.string.closeToggle);
+        //toggleDrawer.syncState();
+        NavigationView navigationView = findViewById(R.id.navigation_levels_nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        SharedPreferences infoPrincipal = getSharedPreferences("Contenido_principal", Context.MODE_PRIVATE);
+        //SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
+
+        /* -------- Actualizar la información del navigation drawer según el login -------- */
+            // Recuperamos la info almacenada
+        String nombre_navigationDrawer = infoPrincipal.getString("nombre", "Nombre");
+        String email_navigationDrawer = infoPrincipal.getString("email", "email@gmail.com");
+        String genero_navigationDrawer = infoPrincipal.getString("genero", "Hombre");
+            // Tomamos la referencia del header del navigation
+        View header_navigation = navigationView.getHeaderView(0);
+            // Tomamos la referencia de los diferentes campos del header
+        ImageView imagen_header_navigation = header_navigation.findViewById(R.id.image_header_navigation_levels);
+        TextView nombre_header_navigation = header_navigation.findViewById(R.id.name_header_navigation_levels);
+        TextView email_header_navigation = header_navigation.findViewById(R.id.email_header_navigation_levels);
+            // Asignamos la info almacenada a cada campo
+        nombre_header_navigation.setText(nombre_navigationDrawer);
+        email_header_navigation.setText(email_navigationDrawer);
+        if(genero_navigationDrawer.equals("Mujer")) imagen_header_navigation.setImageResource(R.drawable.mujer_navigation_levels);
+        else imagen_header_navigation.setImageResource(R.drawable.hombre_navigation_levels);
+
+
+        /* -------- Declaramos los diferentes botones -------- */
         final Button boton1 = findViewById(R.id.levelsButton1);
         final Button boton2 = findViewById(R.id.levelsButton2);
 
@@ -56,5 +88,22 @@ public class LevelsActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if(id == R.id.about_us_menu) {
+            Intent navigationIntent = new Intent(this, AboutUs.class);
+            startActivity(navigationIntent);
+        }
+
+        // Cerramos el Drawer
+        DrawerLayout drawer_navigation = findViewById(R.id.navigation_levels);
+        drawer_navigation.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

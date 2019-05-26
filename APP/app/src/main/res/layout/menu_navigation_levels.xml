@@ -3,29 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_scorecard"
-            android:title="@string/Scorecard" />
-        <!--
-        <item
-            android:id="@+id/nav_Setting"
-            android:icon="@drawable/setting_drawer"
-            android:title="Settings" />
-        -->
-    </group>
-
-    <item android:title="Communicate">
+    <item android:title="Opciones">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:title="@string/Share" />
-            <!--
+                android:id="@+id/ajustes_menu"
+                android:icon="@drawable/ajustes_menu"
+                android:title="@string/ajustes_menu" />
             <item
-                android:id="@+id/nav_feedback"
-                android:icon="@drawable/feedback_drawer"
-                android:title="Feedback" />
-            -->
+                android:id="@+id/score_menu"
+                android:icon="@drawable/score_menu"
+                android:title="@string/score_menu" />
+            <item
+                android:id="@+id/about_us_menu"
+                android:icon="@drawable/about_us_menu"
+                android:title="@string/about_us_menu" />
         </menu>
     </item>
 
