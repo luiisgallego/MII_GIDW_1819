@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/mainLogo"
+        android:id="@+id/mainLogoLogin"
         android:layout_width="264dp"
         android:layout_height="228dp"
         android:layout_alignParentTop="true"
@@ -16,20 +16,20 @@
         app:srcCompat="@drawable/quiz_logo" />
 
     <TextView
-        android:id="@+id/mainTextUsuario"
+        android:id="@+id/mainTextUsuarioLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/mainLogo"
+        android:layout_alignStart="@+id/mainLogoLogin"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="-25dp"
         android:layout_marginBottom="349dp"
-        android:text="@string/mainTextUsuario" />
+        android:text="@string/mainTextUsuarioLogin" />
 
     <EditText
-        android:id="@+id/mainEditUsuario"
+        android:id="@+id/mainEditUsuarioLogin"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/mainLogo"
+        android:layout_alignStart="@+id/mainLogoLogin"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="-25dp"
         android:layout_marginBottom="304dp"
@@ -37,20 +37,20 @@
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/mainTextPass"
+        android:id="@+id/mainTextPassLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/mainLogo"
+        android:layout_alignStart="@+id/mainLogoLogin"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="-25dp"
         android:layout_marginBottom="258dp"
-        android:text="@string/mainTextPass" />
+        android:text="@string/mainTextPassLogin" />
 
     <EditText
-        android:id="@+id/mainEditPass"
+        android:id="@+id/mainEditPassLogin"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/mainLogo"
+        android:layout_alignStart="@+id/mainLogoLogin"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="-25dp"
         android:layout_marginBottom="215dp"
@@ -65,14 +65,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="138dp"
         android:text="@string/mainButtonLogin" />
-
-    <TextView
-        android:id="@+id/mainTextRegistrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="93dp"
-        android:text="@string/mainTextRegistrar" />
 
 </RelativeLayout>

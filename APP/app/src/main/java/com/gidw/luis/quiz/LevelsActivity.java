@@ -79,7 +79,7 @@ public class LevelsActivity extends AppCompatActivity implements NavigationView.
 
         // Recogemos la info compartida en el login - registro
         SharedPreferences infoPrincipal = getSharedPreferences("Contenido_principal", Context.MODE_PRIVATE);
-        //SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
+        //SharedPreferences score = getSharedPreferences("Score", Context.MODE_PRIVATE);
 
         /* -------- Actualizar la información del navigation drawer según el login -------- */
 
