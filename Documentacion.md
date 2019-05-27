@@ -24,3 +24,5 @@
 	- Que estamos haciendo con sharedPreferences? Usamos algo parecido a una caché de android, igual es esto mismo. Mediante esto estamos creando como un canal privado donde almacenamos la info deseada, y que mientras no se elimine la app, está permanecerá almacenada. Ideal para login - registro.
 
 	- Un detalle curioso es como evalua android las comparaciones de texto, siendo necesario en ocasios getText.toString() y en otras no.
+
+	- Completado el proceso de login - registro correctamente. ahora guardamos email y tambien género mediante un spinner, para el cual nos hemos tenido que crear una clase específica para algunos de sus métodos.

@@ -43,7 +43,7 @@
         android:layout_alignStart="@+id/mainLogoRegistrar"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="-25dp"
-        android:layout_marginBottom="258dp"
+        android:layout_marginBottom="268dp"
         android:text="@string/mainTextPassRegistrar" />
 
     <EditText
@@ -53,9 +53,31 @@
         android:layout_alignStart="@+id/mainLogoRegistrar"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="-25dp"
-        android:layout_marginBottom="215dp"
+        android:layout_marginBottom="226dp"
         android:ems="10"
         android:inputType="textPersonName" />
+
+
+    <TextView
+        android:id="@+id/mainTextEmailRegistrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/mainLogoRegistrar"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-24dp"
+        android:layout_marginBottom="193dp"
+        android:text="@string/mainTextEmailRegistrar" />
+
+    <EditText
+        android:id="@+id/mainEditEmailRegistrar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/mainLogoRegistrar"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-24dp"
+        android:layout_marginBottom="149dp"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
 
     <Button
         android:id="@+id/mainButtonRegistrar"
@@ -63,7 +85,26 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="138dp"
+        android:layout_marginBottom="23dp"
         android:text="@string/mainButtonRegistrar" />
+
+    <TextView
+        android:id="@+id/mainTextGeneroRegistrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/mainLogoRegistrar"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-23dp"
+        android:layout_marginBottom="117dp"
+        android:text="@string/mainTextGeneroRegistrar" />
+
+    <Spinner
+        android:id="@+id/mainSpinnerGeneroRegistrar"
+        android:layout_width="117dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="123dp"
+        android:layout_marginBottom="114dp" />
 
 </RelativeLayout>

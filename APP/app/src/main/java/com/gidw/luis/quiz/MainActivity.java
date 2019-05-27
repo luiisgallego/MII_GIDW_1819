@@ -4,18 +4,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Button;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.Context;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView;
 
 public class MainActivity extends AppCompatActivity {
 
     String nombre_shared, pass_shared, email_shared, genero_shared;
     Boolean statusSharedPreferences;
+    String[] generos = {"Hombre", "Mujer"};
+    String genero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
         // Comprobamos si ya se ha registrado
         statusSharedPreferences = comprobarSharedPreferences(infoPrincipal);
 
-        //System.out.println("\n\n\n HEREEE  \n\n\n" + statusSharedPreferences);
-
         // Actuamos en funcion de status
         if(!statusSharedPreferences) {  // Registrar
             setContentView(R.layout.activity_main_registrar);
@@ -37,7 +40,15 @@ public class MainActivity extends AppCompatActivity {
             // Declaramos los campos editables y el botón
             final EditText usuarioRegistrar = findViewById(R.id.mainEditUsuarioRegistrar);
             final EditText passwordRegistrar = findViewById(R.id.mainEditPassRegistrar);
+            final EditText emailRegistrar = findViewById(R.id.mainEditEmailRegistrar);
             final Button botonRegistrar = findViewById(R.id.mainButtonRegistrar);
+
+                // Configuramos spinner genero
+            Spinner generoRegistrar = findViewById(R.id.mainSpinnerGeneroRegistrar);
+            ArrayAdapter<String> adapterSpinnnerGenero = new ArrayAdapter<>(this, R.layout.spinner_genero, generos);
+            adapterSpinnnerGenero.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+            generoRegistrar.setAdapter(adapterSpinnnerGenero);
+            generoRegistrar.setOnItemSelectedListener(new SpinnerActivity());
 
             botonRegistrar.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -55,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
                         SharedPreferences.Editor editorInfoPrincipal = infoPrincipal.edit();
                         editorInfoPrincipal.putString("nombre", usuarioRegistrar.getText().toString());
                         editorInfoPrincipal.putString("contraseña", passwordRegistrar.getText().toString());
-                        //editorInfoPrincipal.putString("email", "emailRandom@gmail.es");
-                        //editorInfoPrincipal.putString("genero", "Hombre");
+                        editorInfoPrincipal.putString("email", emailRegistrar.getText().toString());
+                        editorInfoPrincipal.putString("genero", genero);
                         editorInfoPrincipal.commit();
 
                         // Creamos e iniciamos la nueva actividad
@@ -106,22 +117,28 @@ public class MainActivity extends AppCompatActivity {
 
         nombre_shared = infoPrincipal.getString("nombre", ""); // Por defecto vacio (en el caso de que no haya nada)
         pass_shared = infoPrincipal.getString("contraseña", "");
-        //email_shared = infoPrincipal.getString("email", "");
-        //genero_shared = infoPrincipal.getString("genero", "");
+        email_shared = infoPrincipal.getString("email", "");
+        genero_shared = infoPrincipal.getString("genero", "");
 
-        System.out.println("FUNCION SHARED PREFERENCES: ");
-        System.out.println(nombre_shared);
-        System.out.println(pass_shared);
-        System.out.println(" FIN FUNCION SHARED PREFERENCES: ");
-
-        //return (!nombre_shared.equals("") || !pass_shared.equals("") || !email_shared.equals("") || !genero_shared.equals(""));
-        return (!nombre_shared.equals("") || !pass_shared.equals(""));
+        return (!nombre_shared.equals("") || !pass_shared.equals("") || !email_shared.equals("") || !genero_shared.equals(""));
     }
 
-    /*private boolean compruebaPassword(Editable usuario, Editable password, SharedPreferences infoPrincipal) {
-        return (!usuario.toString().equals(infoPrincipal.getString("nombre", ""))
-                && !password.toString().equals(infoPrincipal.getString("contraseña", "")));
-    }*/
+    // Spinner class para seleccionar el spinner y tambien el genero
+    class SpinnerActivity implements AdapterView.OnItemSelectedListener {
+
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            genero = parent.getItemAtPosition(position).toString();
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+            // Cuando no seleccionamos nada
+            Toast.makeText(getApplicationContext(), "Por favor selecciona el género", Toast.LENGTH_SHORT).show();
+        }
+    }
 
 
 }
+
+

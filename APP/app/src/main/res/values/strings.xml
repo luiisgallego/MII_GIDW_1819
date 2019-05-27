@@ -10,6 +10,8 @@
     <string name="mainButtonRegistrar">REGISTRAR</string>
     <string name="mainTextUsuarioRegistrar">Usuario</string>
     <string name="mainTextPassRegistrar">Contraseña</string>
+    <string name="mainTextEmailRegistrar">Email</string>
+    <string name="mainTextGeneroRegistrar">Género</string>
 
     <!-- Levels  -->
     <string name="nivel1">Nivel 1</string>
