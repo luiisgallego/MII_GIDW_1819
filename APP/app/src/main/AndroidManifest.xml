@@ -17,9 +17,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".LevelsActivity" />
-        <activity android:name=".ReadyActivity" />
         <activity android:name=".TestActivity" />
-        <activity android:name=".AboutUs"></activity>
+        <activity android:name=".ResultActivity" />
+        <activity
+            android:name=".ScoreActivity"
+            android:label="@string/title_activity_score"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

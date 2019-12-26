@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundInical"
     tools:context=".MainActivity">
 
     <ImageView
@@ -12,8 +13,8 @@
         android:layout_height="228dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
-        app:srcCompat="@drawable/quiz_logo" />
+        android:layout_marginTop="30dp"
+        app:srcCompat="@drawable/logoint" />
 
     <TextView
         android:id="@+id/mainTextUsuarioLogin"

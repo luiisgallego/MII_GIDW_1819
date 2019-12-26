@@ -14,10 +14,6 @@
     <string name="mainTextGeneroRegistrar">Género</string>
 
     <!-- Levels  -->
-    <string name="nivel1">Nivel 1</string>
-    <string name="nivel2">Nivel 2</string>
-    <string name="nivel3">Nivel 3</string>
-    <string name="nivel4">Nivel 4</string>
     <string name="openToggle">Abierto drawer navegacion</string>
     <string name="closeToggle">Cerrado drawer navegacion</string>
 
@@ -41,6 +37,27 @@
     <string name="levelsButton8">Nivel 8</string>
     <string name="levelsButton9">Nivel 9</string>
     <string name="levelsButton10">Nivel 10</string>
+    <string name="play_button">PLAY</string>
 
+    <!-- Result -->
+    <string name="estadisticas">Estadísticas</string>
+    <string name="totalPreguntas">Total preguntas: </string>
+    <string name="correctasPreguntas">Correctas: </string>
+    <string name="incorrectasPreguntas">Incorrectas: </string>
+    <string name="volver">Volver al inicio</string>
+    <string name="title_activity_score">Score</string>
 
+    <!-- Score -->
+    <string name="nivel1">Nivel 1</string>
+    <string name="nivel2">Nivel 2</string>
+    <string name="nivel3">Nivel 3</string>
+    <string name="nivel4">Nivel 4</string>
+    <string name="nivel5">Nivel 5</string>
+    <string name="nivel6">Nivel 6</string>
+    <string name="nivel7">Nivel 7</string>
+    <string name="nivel8">Nivel 8</string>
+    <string name="nivel9">Nivel 9</string>
+    <string name="nivel10">Nivel 10</string>
+
+    <string name="Opciones">Opciones</string>
 </resources>

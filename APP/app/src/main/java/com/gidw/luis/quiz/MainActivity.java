@@ -2,7 +2,6 @@ package com.gidw.luis.quiz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -11,9 +10,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.Context;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,20 +22,29 @@ public class MainActivity extends AppCompatActivity {
     String[] generos = {"Hombre", "Mujer"};
     String genero;
 
+    // DB
+    private DB db;
+    private List<Questions> listQuestions = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // Referenciamos de preferencias compartidas
         final SharedPreferences infoPrincipal = getSharedPreferences("Contenido_principal", Context.MODE_PRIVATE);
-        //SharedPreferences score = getSharedPreferences("Score", Context.MODE_PRIVATE);
+        final SharedPreferences score = getSharedPreferences("ScoreActivity", Context.MODE_PRIVATE);
 
         // Comprobamos si ya se ha registrado
         statusSharedPreferences = comprobarSharedPreferences(infoPrincipal);
+        System.out.println("StatusSharedPreferences: " + statusSharedPreferences);
 
         // Actuamos en funcion de status
         if(!statusSharedPreferences) {  // Registrar
             setContentView(R.layout.activity_main_registrar);
+
+            // Como es nuestra primera vez, creamos la BD
+            db = new DB(this);
+            db.insertarQuestiones();
 
             // Declaramos los campos editables y el botón
             final EditText usuarioRegistrar = findViewById(R.id.mainEditUsuarioRegistrar);
@@ -62,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
                     } else {
 
-                        // Copiamos los datos al sharedPreferences
+                        // Copiamos los datos del usuario al sharedPreferences
                         SharedPreferences.Editor editorInfoPrincipal = infoPrincipal.edit();
                         editorInfoPrincipal.putString("nombre", usuarioRegistrar.getText().toString());
                         editorInfoPrincipal.putString("contraseña", passwordRegistrar.getText().toString());
@@ -70,10 +79,24 @@ public class MainActivity extends AppCompatActivity {
                         editorInfoPrincipal.putString("genero", genero);
                         editorInfoPrincipal.commit();
 
+                        // Iniciamos la info del score
+                        SharedPreferences.Editor editorScore = score.edit();
+                        editorScore.putInt("nivel", 1);
+                        editorScore.putInt("score_level_1", 0);
+                        editorScore.putInt("score_level_2", 0);
+                        editorScore.putInt("score_level_3", 0);
+                        editorScore.putInt("score_level_4", 0);
+                        editorScore.putInt("score_level_5", 0);
+                        editorScore.putInt("score_level_6", 0);
+                        editorScore.putInt("score_level_7", 0);
+                        editorScore.putInt("score_level_8", 0);
+                        editorScore.putInt("score_level_9", 0);
+                        editorScore.putInt("score_level_10", 0);
+                        editorScore.commit();
+
                         // Creamos e iniciamos la nueva actividad
                         Intent mainIntent = new Intent(MainActivity.this, LevelsActivity.class);
                         startActivity(mainIntent);
-
                     }
                 }
             });
@@ -137,8 +160,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Por favor selecciona el género", Toast.LENGTH_SHORT).show();
         }
     }
-
-
 }
 
 

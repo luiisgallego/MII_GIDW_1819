@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/estadisticas"
+        android:textAlignment="center"
+        android:textSize="48sp" />
+
+    <TextView
+        android:id="@+id/resultScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:textColor="#1b475c"
+        android:textSize="28sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="25dp"
+        android:background="#c6c6c6" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:layout_width="187dp"
+            android:layout_height="wrap_content"
+            android:text="@string/totalPreguntas"
+            android:textColor="#d4ce2e"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/totalPreguntas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFD4CE2E"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="186dp"
+            android:layout_height="wrap_content"
+            android:text="@string/correctasPreguntas"
+            android:textColor="#51b364"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/correctasPreguntas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#51b364"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="186dp"
+            android:layout_height="wrap_content"
+            android:text="@string/incorrectasPreguntas"
+            android:textColor="#e9403d"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/incorrectasPreguntas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#e9403d"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="25dp"
+        android:background="#bebebe" />
+
+    <TextView
+        android:id="@+id/resultFinal"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="#4953b1"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/subeNivel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:textAlignment="center"
+        android:textColor="#4953b1"
+        android:textSize="24sp" />
+
+    <RelativeLayout
+        android:layout_width="246dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/buttonVolver"
+            android:layout_width="115dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="0dp"
+            android:text="@string/volver" />
+    </RelativeLayout>
+
+
+</LinearLayout>
+
